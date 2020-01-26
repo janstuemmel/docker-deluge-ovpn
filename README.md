@@ -1,3 +1,6 @@
+[![](https://images.microbadger.com/badges/version/janstuemmel/deluge-ovpn.svg)](https://hub.docker.com/r/janstuemmel/deluge-ovpn)
+
+
 # docker deluge ovpenvpn
 
 This image sets up a deluge daemon and routes all trafic over an openvpn tunnel. The firewall is configured as a kill switch.
@@ -24,7 +27,7 @@ version: '3'
 
 services: 
   app:
-    build: .
+    image: janstuemmel/deluge-ovpn
     cap_add:
       - NET_ADMIN
     devices:
@@ -53,6 +56,8 @@ services:
 ```
 
 Start service with `docker-compose up -d`. Debug vpn connection then with `docker-compose logs -f`. You can check your torrent ip with [ipleak.net](https://ipleak.net/).
+
+After that you can connect to the daemon with the geluge gtk ui or the webinterface. The default credentials are `admin/admin`.
 
 ## Resources
 
